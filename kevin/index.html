@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mubuga Health Clinic - Dashboard</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="logo-container">
+            <i class="fas fa-plus-square logo-icon"></i>
+            <span class="logo-text">MUB-CLINIC</span>
+        </div>
+
+        <ul>
+            <li class="menu-item dashboard-btn active" onclick="showPage('dashboard', this)">
+                <a href="#"><i class="fas fa-th-large"></i> DASHBOARD</a>
+            </li>
+            <li class="menu-item" onclick="showPage('register', this)">
+                <a href="#"><i class="fas fa-user-plus"></i> Register Patient</a>
+            </li>
+            <li class="menu-item" onclick="showPage('appointments', this)">
+                <a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a>
+            </li>
+            <li class="menu-item" onclick="showPage('settings', this)">
+                <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <header class="top-header">
+            <h1 class="clinic-name-display" id="header-clinic-name">MUBUGA HEALTH CLINIC</h1>
+        </header>
+
+        <div class="content-body">
+            <h2 class="page-title" id="main-page-title">Clinic Dashboard</h2>
+
+            <!-- DASHBOARD PAGE -->
+            <section id="dashboard" class="page-section active-section">
+                <div class="card">
+                    <h3>Welcome back, Admin</h3>
+                    <p>Today you have 24 patients waiting at the facility.</p>
+                </div>
+            </section>
+
+            <!-- REGISTER PAGE -->
+            <section id="register" class="page-section">
+                <div class="card">
+                    <div class="input-group">
+                        <label>Enter patient name</label>
+                        <input type="text" id="reg-name" placeholder="Enter full names...">
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="text" id="reg-phone" placeholder="+250...">
+                    </div>
+                    <!-- Buto ihamagara function yo kubika muri script.js -->
+                    <button class="btn-action green" onclick="registerAndSave()">SAVE PATIENT</button>
+                </div>
+            </section>
+
+            <!-- APPOINTMENTS PAGE -->
+            <section id="appointments" class="page-section">
+                <div class="card" style="max-width: 100%;">
+                    <h3>Today's Patient Appointments</h3>
+                    <p>This is where you view patients who are waiting and those who have completed their visits.</p>
+                    
+                    <table class="appointment-table">
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Phone</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <!-- Aha niho JavaScript izashyira abarwayi bashya -->
+                        <tbody id="appointment-list">
+                            <!-- Abarwayi babitswe bazagaragara hano -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SETTINGS PAGE -->
+            <section id="settings" class="page-section">
+                <div class="card">
+                    <h3>System Settings</h3>
+                    <div class="input-group">
+                        <label>Change Clinic Name</label>
+                        <input type="text" id="clinic-name-input" placeholder="Type new name...">
+                    </div>
+                    <button class="btn-action dark" onclick="updateClinicName()">UPDATE SETTINGS</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
